@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="container">
+        <div id="tables">
+            <!-- Generate tables -->
+        </div>
+        <div id="order">
+            <h4 id="nhap_mon">Nhập món cho bàn <span id="tableNumber"></span></h4>
+            <!-- Your order form goes here -->
+            <form id="orderForm">
+                <div class="order-items">
+                    <input type="text" id="dish" name="dish"><br>
+                </div>
+                <input type="printBill" value="Thanh toán" id="btn-thanh-toan"><br>
+                <input type="view" value="Xem" id="btn-view">
+            </form>
+            <div id="autocorrect"></div>       
+            <div id="order-items"></div><br> 
+        </div>        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

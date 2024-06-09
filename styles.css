@@ -1,0 +1,157 @@
+#nhap_mon {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.table {
+    margin-top: 5px;
+    width: 160px; /*chiều ngang ô vuông*/
+    height: 160px; /*chiều dọc ô vuông*/
+    border: 5px solid black; /*độ dày viền và màu viền ô vuông*/
+    text-align: center;
+    vertical-align: middle;
+    line-height: 160px;
+    cursor: pointer;
+    font-size: 30px; /*kích thước số trong khung*/
+    border-radius: 20px; /*bo góc cho khung*/
+}
+#tables {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px; /*khoảng cách giứa các ô */
+}
+#order {
+    margin-left: 10px;
+    display: none;
+    font-size: 30px;
+}
+#container {
+    display: flex;
+}
+.table:nth-child(15), .table:nth-child(16) {
+    background-color: #FFC300; /* Change background color to yellow for takeaway */
+}
+#orderForm {
+    display: flex; /* Make the order form container a flexbox */
+    justify-content: space-between; /* Distribute items horizontally */
+    align-items: center; /* Align items vertically in the center */
+    font-size: 25px;
+    margin-bottom: 10px; /* Add spacing between order items */
+}
+
+/*Khung nhập món ăn*/
+#orderForm .order-items input[type="text"]{
+    width: 550px; /* Increase the overall width */
+    height: 50px; /* Increase the overall height */
+    padding: 10px; /* Add padding around the text */
+    font-size: 25px; /* Adjust font size for readability */
+    border: 5px solid #ccc; /* Add a border */
+    border-radius: 1px; /* Add rounded corners */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+    padding-block: 10px;
+    border-radius: 10px
+}
+
+/*Nút in bill*/
+#orderForm input[type="printBill"]{
+    width: 120px; /* Set button width */
+    height: 45px; /* Set button height */
+    font-size: 18px; /* Set button font size */
+    background-color: #a3f3b1; /* Default button color */
+    color: rgb(0, 0, 0); /* Default text color */
+    transition: background-color 0.1s ease; /* Add transition effect */
+    border-radius: 10px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+/*Nút xem bill*/
+#orderForm input[type="view"]{
+    width: 60px; /* Set button width */
+    height: 45px; /* Set button height */
+    font-size: 18px; /* Set button font size */
+    background-color: #79c8f7; /* Default button color */
+    color: rgb(0, 0, 0); /* Default text color */
+    transition: background-color 0.1s ease; /* Add transition effect */
+    border-radius: 10px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+#order-items {
+    /* Add overflow: auto to enable scrollbar */
+    overflow: auto;
+
+    /* Optional: Set a maximum height to prevent excessive scrolling */
+    max-height: 290px; /* Adjust as needed */
+    position: relative;
+}
+
+/* Order item styles */
+/*khung bao quanh món ăn được đặt*/
+.order-item {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Distribute items horizontally */
+    align-items: center; /* Align items vertically in the center (existing) */
+    margin-bottom: 10px; /* Add spacing between order items (existing) */
+    border: 3px solid #000000; /* Add a border to each order item (existing) */
+    padding: 5px; /* Add padding around the order item content (existing) */
+    border-radius: 5px; /* Add rounded corners (existing) */
+}
+
+/*tên món ăn đã được nhập*/
+.order-item span {
+    font-size: 25px; /* Set the font size for the dish name */
+    margin-right: 20px; /* Add spacing between dish name and quantity input */
+}
+
+/* Group quantity and remove button */
+.order-item .quantity-group {
+    display: flex; /* Create a flex container within the order item */
+    align-items: center; /* Align items vertically in the center */
+}
+
+/*số lượng món ăn đã được nhập*/
+.order-item input[type="number"] {
+    height: 25px;
+    width: 50px; /* Set the width of the quantity input */
+    text-align: center; /* Center the quantity value */
+    font-size: 20px;
+    margin-right: 20px; /* Add spacing between dish name and quantity input */
+}
+
+
+
+/*nút xóa*/
+.order-item button {
+    background-color: #f00; /* Set the background color of the remove button */
+    color: white; /* Set the text color of the remove button */
+    border: none; /* Remove the default button border */
+    padding: 8px 20px; /* Add padding to the remove button */
+    cursor: pointer; /* Indicate that the button is clickable */
+    font-size: 16px; /* Set the font size for the remove button text */
+    
+}
+
+.ordered-table {
+    background-color: #00FF00 !important; /* Replace with your desired green color */
+}
+
+#body {
+    font-family: sans-serif;
+    z-index: 10;
+}
+#autocorrect {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#autocorrect li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 20px;
+}
+#autocorrect li:hover {
+    background-color: #eee;
+}
+
