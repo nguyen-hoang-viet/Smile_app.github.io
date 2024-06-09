@@ -131,6 +131,7 @@ var listQuantity = [];
 var tableNumber
 var shipFee
 var discountCode
+var note
 
 const btnDownload = document.getElementById('btn-download');
 const btnPrint = document.getElementById('btn-print');
@@ -174,6 +175,14 @@ function renderProducts() {
 
     totalFinal += shipFee
     totalCost.textContent = totalFinal.toLocaleString({ style: 'currency', currency: 'VND' });
+
+    if (note !== '') {
+        const thankYouElement = document.querySelector('.thank'); // Lấy element HTML cho dòng "Trân trọng cảm ơn"
+        const noteContainer = document.createElement('p'); // Tạo một element HTML mới để chứa nội dung note
+        noteContainer.textContent = note; // Gán nội dung note vào element mới
+        thankYouElement.parentNode.insertBefore(noteContainer, thankYouElement); // Chèn element note trước dòng "Trân trọng cảm ơn"
+        noteContainer.style.fontSize = '10px';
+    }
 }
 
 window.addEventListener('load', () => {
@@ -188,6 +197,7 @@ window.addEventListener('load', () => {
         listQuantity = orderData.listQuantity
         shipFee = orderData.shipFee * 1000
         discountCode = orderData.discountCode
+        note = orderData.note
 
         //Gom món
         for (let index1 = 0; index1 < listDishOrdered[tableNumber].length - 1; index1++){

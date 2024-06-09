@@ -19,12 +19,14 @@ window.addEventListener('load', () => {
 const btnThanhToan = document.getElementById('btn-thanh-toan');
 const shipFeeInput = document.getElementById('ship-fee');
 const discountCodeInput = document.getElementById('discount-code');
+const noteInput = document.getElementById('note');
 
 function openBillWindow(){
     const shipFee = Number(shipFeeInput.value);
     const discountCode = Number(discountCodeInput.value);
+    const note = noteInput.value
 
-    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID, shipFee, discountCode}))
+    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID, shipFee, discountCode, note}))
 
     window.close()
 
