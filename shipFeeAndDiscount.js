@@ -1,6 +1,6 @@
-var listDishOrdered = [];
-var listQuantity = [];
-var tableID
+let listDishOrdered = [];
+let listQuantity = [];
+let tableID
 
 window.addEventListener('load', () => {
 
@@ -12,6 +12,8 @@ window.addEventListener('load', () => {
         tableID = orderData.tableID
         listDishOrdered = orderData.listDishOrdered
         listQuantity = orderData.listQuantity
+
+        //const confirmation = confirm(tableID);
     }
     localStorage.removeItem('orderData');
 })

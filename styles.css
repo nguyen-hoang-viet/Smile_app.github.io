@@ -40,7 +40,7 @@
 
 /*Khung nhập món ăn*/
 #orderForm .order-items input[type="text"]{
-    width: 550px; /* Increase the overall width */
+    width: 490px; /* Increase the overall width */
     height: 50px; /* Increase the overall height */
     padding: 10px; /* Add padding around the text */
     font-size: 25px; /* Adjust font size for readability */
@@ -70,6 +70,19 @@
     height: 45px; /* Set button height */
     font-size: 18px; /* Set button font size */
     background-color: #79c8f7; /* Default button color */
+    color: rgb(0, 0, 0); /* Default text color */
+    transition: background-color 0.1s ease; /* Add transition effect */
+    border-radius: 10px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+/*Nút Thống kê*/
+#orderForm input[type="report"]{
+    width: 100px; /* Set button width */
+    height: 45px; /* Set button height */
+    font-size: 18px; /* Set button font size */
+    background-color: #FFC300; /* Default button color */
     color: rgb(0, 0, 0); /* Default text color */
     transition: background-color 0.1s ease; /* Add transition effect */
     border-radius: 10px;
@@ -111,11 +124,11 @@
 }
 
 /*số lượng món ăn đã được nhập*/
-.order-item input[type="number"] {
+.order-item input[type="text"] {
     height: 25px;
-    width: 50px; /* Set the width of the quantity input */
-    text-align: center; /* Center the quantity value */
-    font-size: 20px;
+    width: 200px; /* Set the width of the quantity input */
+    text-align: left; /* Center the quantity value */
+    font-size: 16px;
     margin-right: 20px; /* Add spacing between dish name and quantity input */
 }
 
