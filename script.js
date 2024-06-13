@@ -277,7 +277,7 @@ function suggestions() {
     const danhSachGoiYMoi = [];
     for (let index = 0; index < dishAndPrice.length; index++) {
         const monAn = dishAndPrice[index][1];
-        if (monAn.toLowerCase().startsWith(currentInput)) {
+        if (monAn.toLowerCase().includes(currentInput.toLowerCase())) {
             danhSachGoiYMoi.push(monAn);
         }
     }
