@@ -1,6 +1,7 @@
 let listDishOrdered = [];
 let listQuantity = [];
 let tableID
+let dateAndTimeOfTable = []
 
 window.addEventListener('load', () => {
 
@@ -12,6 +13,7 @@ window.addEventListener('load', () => {
         tableID = orderData.tableID
         listDishOrdered = orderData.listDishOrdered
         listQuantity = orderData.listQuantity
+        dateAndTimeOfTable = orderData.dateAndTimeOfTable
 
         //const confirmation = confirm(tableID);
     }
@@ -28,7 +30,7 @@ function openBillWindow(){
     const discountCode = Number(discountCodeInput.value);
     const note = noteInput.value
 
-    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID, shipFee, discountCode, note}))
+    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID, shipFee, discountCode, note, dateAndTimeOfTable}))
 
     window.close()
 

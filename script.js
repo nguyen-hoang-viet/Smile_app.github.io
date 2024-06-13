@@ -114,7 +114,7 @@ var reportData = []
 
 localStorage.setItem('reportData', JSON.stringify(reportData));
 
-
+var dateAndTimeOfTable = []
 
 const listDishOrdered = [];
 const listQuantity = [];
@@ -207,6 +207,22 @@ function addOrderItem(tableNumber, dishName, noteForDish) {
         dishName: dishName,
         note: noteForDish
     });
+
+    //const confirmation = confirm(tableOrders[tableNumber].length);
+
+    if (tableOrders[tableNumber].length === 1){
+        const now = new Date();
+        const dateString = now.toLocaleDateString();
+        const timeString = now.toLocaleTimeString();
+
+        //const confirmation = confirm(now);
+        
+        if (!dateAndTimeOfTable[tableID]){
+            dateAndTimeOfTable[tableID] = []
+        }
+        dateAndTimeOfTable[tableID][0] = dateString;
+        dateAndTimeOfTable[tableID][1] = timeString;        
+    }
 
     updateOrderItems(tableNumber);
     updateTableColors(); // Call to update table colors
@@ -335,7 +351,7 @@ function completeBill(){
 
     let tableID = convertTableNumberToTableID(tableNumber)
 
-    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID}))
+    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, dateAndTimeOfTable, tableID}))
 
     // Open shipFeeAndDiscount popup window
     const shipFeeAndDiscountWindow = window.open(
@@ -350,6 +366,7 @@ function completeBill(){
     // (Optional) Focus the bill window
     shipFeeAndDiscountWindow.focus();
 
+    dateAndTimeOfTable[tableID] = []
     listDishOrdered[tableID] = []
     listQuantity[tableID] = []
 }

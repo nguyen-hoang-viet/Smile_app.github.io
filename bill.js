@@ -112,6 +112,7 @@ const dishAndPrice = [
 let priceDish = []
 let listDishOrdered = []
 let listQuantity = []
+let dateAndTimeOfTable = []
 let tableNumber
 let shipFee
 let discountCode
@@ -189,6 +190,7 @@ window.addEventListener('load', () => {
         listQuantity = orderData.listQuantity
         shipFee = orderData.shipFee
         discountCode = orderData.discountCode
+        dateAndTimeOfTable = orderData.dateAndTimeOfTable
         note = orderData.note
 
         var reportData = JSON.parse(localStorage.getItem('reportData'));
@@ -227,7 +229,7 @@ window.addEventListener('load', () => {
             discountCheck = totalCheck * discountCode / 100
             totalCheck = totalCheck * (100 - discountCode)/100 + shipFee   
         } else {
-            discountCheck = totalCheck - discountCode
+            discountCheck = discountCode
             totalCheck = totalCheck - discountCode + shipFee
         }
 
@@ -237,6 +239,8 @@ window.addEventListener('load', () => {
             
             reportData.push({
                 tableNumber: tableNumber,
+                date: dateAndTimeOfTable[tableNumber][0],
+                time: dateAndTimeOfTable[tableNumber][1],
                 codeOfDish: codeOfDish[indexOfListDishOrdered],
                 nameOfDish: listDishOrdered[tableNumber][indexOfListDishOrdered],
                 quantity: listQuantity[tableNumber][indexOfListDishOrdered],

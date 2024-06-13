@@ -11,11 +11,11 @@ function renderReport(reportData) {
         cell1.style.textAlign = 'left';
 
         const cell2 = row.insertCell();
-        cell2.textContent = '1';
+        cell2.textContent = reportData[indexOfReport].date;
         cell2.style.textAlign = 'left';
 
         const cell3 = row.insertCell();
-        cell3.textContent = '1';
+        cell3.textContent = reportData[indexOfReport].time;
         cell3.style.textAlign = 'left';
 
         const cell4 = row.insertCell();
