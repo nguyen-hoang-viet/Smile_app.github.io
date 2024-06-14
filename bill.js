@@ -157,11 +157,13 @@ function renderProducts() {
     totalFinal = totalAmount
 
     if (discountCode <= 100){
+        discountFee = totalFinal * discountCode/100
         totalFinal = totalFinal * (100 - discountCode)/100
-        discount.textContent = totalFinal.toLocaleString({ style: 'currency', currency: 'VND' });
+        discount.textContent = discountFee.toLocaleString({ style: 'currency', currency: 'VND' });
     } else {
+        discountFee = discountCode
         totalFinal = totalFinal - discountCode
-        discount.textContent = totalFinal.toLocaleString({ style: 'currency', currency: 'VND' });
+        discount.textContent = discountFee.toLocaleString({ style: 'currency', currency: 'VND' });
     }
 
     shipCod.textContent = shipFee.toLocaleString({ style: 'currency', currency: 'VND' });
