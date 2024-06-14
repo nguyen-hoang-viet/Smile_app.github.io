@@ -293,34 +293,50 @@ function suggestions() {
     const danhSachGoiYMoi = [];
     for (let index = 0; index < dishAndPrice.length; index++) {
         const monAn = dishAndPrice[index][1];
-        if (monAn.toLowerCase().includes(currentInput.toLowerCase())) {
+        const code = dishAndPrice[index][0];
+        if (monAn.toLowerCase().includes(currentInput.toLowerCase()) 
+            || code.toLowerCase().startsWith(currentInput.toLowerCase())) {
             danhSachGoiYMoi.push(monAn);
         }
     }
-    suggestionsList.innerHTML = "";
-    suggestionsList.style.display = "inline";
-    for (const monAn of danhSachGoiYMoi.slice(0, 9)) { // Giới hạn 9 gợi ý
-        const li = document.createElement('li');
-        li.textContent = monAn;
 
-        // Add functionality similar to submit button click
-        li.addEventListener('click', function() {
-            const tableNumber = document.getElementById('tableNumber').textContent;
-            const dishName = monAn; // Use the suggested dish name
-            const noteForDish = ''
+    if (danhSachGoiYMoi.length === 1){
+        const tableNumber = document.getElementById('tableNumber').textContent;
+        const dishName = danhSachGoiYMoi[0]; // Use the suggested dish name
+        const noteForDish = ''
+        
+        // Call the function to add the order item (assuming `addOrderItem` exists)
+        addOrderItem(tableNumber, dishName, noteForDish);
+
+        // Clear the dish input field
+        dishInput.value = '';
+    }
+    else{
+        suggestionsList.innerHTML = "";
+        suggestionsList.style.display = "inline";
+        for (const monAn of danhSachGoiYMoi.slice(0, 9)) { // Giới hạn 9 gợi ý
+            const li = document.createElement('li');
+            li.textContent = monAn;
+    
+            // Add functionality similar to submit button click
+            li.addEventListener('click', function() {
+                const tableNumber = document.getElementById('tableNumber').textContent;
+                const dishName = monAn; // Use the suggested dish name
+                const noteForDish = ''
+                
+                // Call the function to add the order item (assuming `addOrderItem` exists)
+                addOrderItem(tableNumber, dishName, noteForDish);
+    
+                // Clear the dish input field
+                dishInput.value = '';
+    
+                // Hide the suggestions list (optional)
+                suggestionsList.innerHTML = "";
+                suggestionsList.style.display = "none";
+            });
             
-            // Call the function to add the order item (assuming `addOrderItem` exists)
-            addOrderItem(tableNumber, dishName, noteForDish);
-
-            // Clear the dish input field
-            dishInput.value = '';
-
-            // Hide the suggestions list (optional)
-            suggestionsList.innerHTML = "";
-            suggestionsList.style.display = "none";
-        });
-
-    suggestionsList.appendChild(li);
+            suggestionsList.appendChild(li);
+        }
     }
 }
 
