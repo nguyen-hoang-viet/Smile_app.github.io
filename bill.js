@@ -59,7 +59,7 @@ const dishAndPrice = [
     ["KCT", "Kimchi thêm", 6000],
     ["PDT", "Pudding", 4000],
     ["TCT", "Trân châu trắng", 1000],
-    ["TDT", "Thạch dừa", 1000],
+    ["TDT", "Thạch dừa", 4000],
     ["CHIP", "Chipchip", 30000],
     ["KGK", "Khô gà kí", 320000],
     ["KBK", "Khô bò kí", 650000],

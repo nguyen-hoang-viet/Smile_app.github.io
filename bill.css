@@ -11,26 +11,26 @@ body {
 .title{
     font-weight: bold;
     margin-bottom: 5px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .title2{
     margin-bottom: 5px;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .hoadon{
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 10px;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 .thank{
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 10px;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 table {
@@ -44,7 +44,7 @@ table {
 .table th,
 .table td {
     border: none;
-    font-size: 10px;
+    font-size: 12px;
     padding: 4px;
 }
 
