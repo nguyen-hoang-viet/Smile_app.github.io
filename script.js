@@ -1,6 +1,6 @@
 const dishAndPrice = [
-    ["TV", "Tokbokki thường", 25000],
-    ["KB", "Kimbap thường", 18000],
+    ["TV ", "Tokbokki thường", 25000],
+    ["KB ", "Kimbap thường", 18000],
     ["KBC", "Kimbap chiên", 22000],
     ["TSTTM", "Trà sữa truyền thống (M)", 20000],
     ["TSTTL", "Trà sữa truyền thống (L)", 28000],
@@ -12,7 +12,7 @@ const dishAndPrice = [
     ["TĐL", "Trà đào (L)", 25000],
     ["TCM", "Trà chanh (M)", 12000],
     ["TCL", "Trà chanh (L)", 15000],   
-    ["CV", "Mì Cay viên xịn", 37000],
+    ["CV ", "Mì Cay viên xịn", 37000],
     ["CKCV", "Mì Cay Kimchi viên", 37000],
     ["CHS", "Mì Cay Hải sản", 45000],
     ["CKCHS", "Mì Cay kimchi hải sản", 47000],
@@ -31,7 +31,7 @@ const dishAndPrice = [
     ["CST", "Cóc sốt thái", 15000],
     ["GR", "Gan rim", 18000],
     ["BX", "Bắp xào", 20000],
-    ["V", "Bò viên chiên", 10000],
+    ["V ", "Bò viên chiên", 10000],
     ["MV", "Mực viên", 12000],
     ["CVTC", "Cá viên bọc trứng cút", 15000],
     ["CVSM", "Cá viên sốt mayo", 15000],
@@ -39,11 +39,11 @@ const dishAndPrice = [
     ["KTCPM", "Khoai tây chiên (phomai)", 18000],
     ["XXĐ", "Xúc xích đức", 10000],
     ["PMQ", "Phomai que", 10000],
-    ["CB1", "Combo 1", 35000],
-    ["CB2", "Combo 2", 40000],
-    ["CB3", "Combo 3", 55000],
-    ["CB4", "Combo 4", 55000],
-    ["KBL", "Khô bò", 38000],   
+    ["CB1 ", "Combo 1", 35000],
+    ["CB2 ", "Combo 2", 40000],
+    ["CB3 ", "Combo 3", 55000],
+    ["CB4 ", "Combo 4", 55000],
+    ["KBL", "Khô bò", 38000], 
     ["KG", "Khô gà", 28000],
     ["BTT", "Bánh tráng trộn", 20000],
     ["MTĐT", "Mì tương đen trứng", 35000],
@@ -310,6 +310,10 @@ function suggestions() {
 
         // Clear the dish input field
         dishInput.value = '';
+
+        // Hide the suggestions list (optional)
+        suggestionsList.innerHTML = "";
+        suggestionsList.style.display = "none";
     }
     else{
         suggestionsList.innerHTML = "";
