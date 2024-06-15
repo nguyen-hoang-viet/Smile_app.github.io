@@ -28,9 +28,9 @@ const noteInput = document.getElementById('note');
 function openBillWindow(){
     const shipFee = Number(shipFeeInput.value);
     const discountCode = Number(discountCodeInput.value);
-    const note = noteInput.value
+    const noteOfBill = noteInput.value
 
-    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID, shipFee, discountCode, note, dateAndTimeOfTable}))
+    localStorage.setItem('orderData', JSON.stringify({listDishOrdered, listQuantity, tableID, shipFee, discountCode, noteOfBill, dateAndTimeOfTable}))
 
     window.close()
 

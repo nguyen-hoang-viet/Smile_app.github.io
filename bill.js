@@ -11,7 +11,7 @@ const dishAndPrice = [
     ["TĐM", "Trà đào (M)", 20000],
     ["TĐL", "Trà đào (L)", 25000],
     ["TCM", "Trà chanh (M)", 12000],
-    ["TCL", "Trà chanh (L)", 15000],   
+    ["TCL", "Trà chanh (L)", 15000], 
     ["CV", "Mì Cay viên xịn", 37000],
     ["CKCV", "Mì Cay Kimchi viên", 37000],
     ["CHS", "Mì Cay Hải sản", 45000],
@@ -43,7 +43,7 @@ const dishAndPrice = [
     ["CB2", "Combo 2", 40000],
     ["CB3", "Combo 3", 55000],
     ["CB4", "Combo 4", 55000],
-    ["KBL", "Khô bò", 38000],   
+    ["KBL", "Khô bò", 38000],
     ["KG", "Khô gà", 28000],
     ["BTT", "Bánh tráng trộn", 20000],
     ["MTĐT", "Mì tương đen trứng", 35000],
@@ -117,7 +117,7 @@ let tableNumber
 let shipFee
 let discountCode
 let codeOfDish = []
-let note
+let noteOfBill
 let totalCheck = 0
 let discountCheck = 0
 
@@ -171,11 +171,11 @@ function renderProducts() {
     totalFinal += shipFee
     totalCost.textContent = totalFinal.toLocaleString({ style: 'currency', currency: 'VND' });
 
-    if (note !== '') {
+    if (noteOfBill !== '') {
         const thankYouElement = document.querySelector('.thank'); // get element HTML for line "Trân trọng cảm ơn"
-        const noteContainer = document.createElement('p'); // create an new element HTML to contain content of note
-        noteContainer.textContent = 'Note: ' + note; // assing content of note to new element
-        thankYouElement.parentNode.insertBefore(noteContainer, thankYouElement); // Put element note above "Trân trọng cảm ơn"
+        const noteOfBillContainer = document.createElement('p'); // create an new element HTML to contain content of noteOfBill
+        noteOfBillContainer.textContent = 'Note: ' + noteOfBill; // assing content of note to new element
+        thankYouElement.parentNode.insertBefore(noteOfBillContainer, thankYouElement); // Put element note above "Trân trọng cảm ơn"
         noteContainer.style.fontSize = '10px';
     }
 }
@@ -193,7 +193,7 @@ window.addEventListener('load', () => {
         shipFee = orderData.shipFee
         discountCode = orderData.discountCode
         dateAndTimeOfTable = orderData.dateAndTimeOfTable
-        note = orderData.note
+        noteOfBill = orderData.noteOfBill
 
         var reportData = JSON.parse(localStorage.getItem('reportData'));
 
