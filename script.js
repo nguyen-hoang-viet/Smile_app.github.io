@@ -300,7 +300,7 @@ function suggestions() {
             danhSachGoiYMoi.push(monAn);
         }
     }
-
+/*
     if (danhSachGoiYMoi.length === 0){
         const tableNumber = document.getElementById('tableNumber').textContent;
         const dishName = danhSachGoiYMoi[0]; // Use the suggested dish name
@@ -342,6 +342,32 @@ function suggestions() {
             
             suggestionsList.appendChild(li);
         }
+    }
+*/
+    suggestionsList.innerHTML = "";
+    suggestionsList.style.display = "inline";
+    for (const monAn of danhSachGoiYMoi.slice(0, 9)) { // Giới hạn 9 gợi ý
+        const li = document.createElement('li');
+        li.textContent = monAn;
+
+        // Add functionality similar to submit button click
+        li.addEventListener('click', function() {
+            const tableNumber = document.getElementById('tableNumber').textContent;
+            const dishName = monAn; // Use the suggested dish name
+            const noteForDish = ''
+            
+            // Call the function to add the order item (assuming `addOrderItem` exists)
+            addOrderItem(tableNumber, dishName, noteForDish);
+
+            // Clear the dish input field
+            dishInput.value = '';
+
+            // Hide the suggestions list (optional)
+            suggestionsList.innerHTML = "";
+            suggestionsList.style.display = "none";
+        });
+        
+        suggestionsList.appendChild(li);
     }
 }
 
