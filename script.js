@@ -181,10 +181,10 @@ function convertTableNumberToTableID(tableNumber){
 }
 
 // Initialize an empty object to store orders by table number
-let tableOrders = {};
+var tableOrders = {};
 
 // Function to add an order item
-function addOrderItem(tableNumber, dishName, noteForDish) {
+function addOrderItem(tableNumber, dishName, quantity) {
 // update listDishOrdered and listQuantity
     
     let tableID = convertTableNumberToTableID(tableNumber)
@@ -205,7 +205,7 @@ function addOrderItem(tableNumber, dishName, noteForDish) {
 
     tableOrders[tableNumber].push({
         dishName: dishName,
-        note: noteForDish
+        quantity: quantity
     });
 
     //const confirmation = confirm(tableOrders[tableNumber].length);
@@ -230,6 +230,8 @@ function addOrderItem(tableNumber, dishName, noteForDish) {
 
 // Function to update order items display for the current table
 function updateOrderItems(tableNumber) {
+    let indexOfQuantityInput = 0
+
     const orderItemsContainer = document.getElementById('order-items');
     orderItemsContainer.innerHTML = ''; // Clear existing items
 
@@ -240,20 +242,102 @@ function updateOrderItems(tableNumber) {
 
             const dishNameElement = document.createElement('span');
             dishNameElement.textContent = orderItem.dishName;
-            orderItemElement.appendChild(dishNameElement);
+            orderItemElement.appendChild(dishNameElement);  
 
-            const noteInput = document.createElement('input');
-            noteInput.type = 'text';
-            noteInput.value = orderItem.note;
-            orderItemElement.appendChild(noteInput);
+            const descreaseButton = document.createElement('button');
+            descreaseButton.type = 'descrease';
+            descreaseButton.textContent = '-';
+            descreaseButton.addEventListener('click', function() {
 
+                for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
+                    if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
+                            checkIndex = indexOfTableOrder
+                            break
+                    }
+                }
+
+                const quantityValue = document.getElementById('quantityValue' + checkIndex.toString()).value;                
+
+                for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
+                    if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
+                        tableOrders[tableNumber][indexOfTableOrder].quantity = Number(quantityValue) - 1
+                        listQuantity[tableNumber][indexOfTableOrder] = Number(quantityValue) - 1
+                        updateOrderItems(tableNumber)
+                    }
+                }
+            })
+            orderItemElement.appendChild(descreaseButton);
+
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'text';
+            quantityInput.id = 'quantityValue' + indexOfQuantityInput.toString();
+            quantityInput.value = orderItem.quantity;
+            orderItemElement.appendChild(quantityInput);
+
+            const increaseButton = document.createElement('button');
+            increaseButton.type = 'increase';
+            increaseButton.textContent = '+';
+            increaseButton.addEventListener('click', function() {
+
+                for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
+                    if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
+                            checkIndex = indexOfTableOrder
+                            break
+                    }
+                }
+
+                const quantityValue = document.getElementById('quantityValue' + checkIndex.toString()).value;                
+
+                for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
+                    if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
+                        tableOrders[tableNumber][indexOfTableOrder].quantity = Number(quantityValue) + 1
+                        listQuantity[tableNumber][indexOfTableOrder] = Number(quantityValue) + 1
+                        updateOrderItems(tableNumber)
+                    }
+                }
+            })
+            orderItemElement.appendChild(increaseButton);
+
+            /* tạo note cho từng món ăn
+            const note = document.createElement('input');
+            note.type = 'text'
+            note.id = 'noteValue' + indexOfNote.toString();
+            note.value = orderItem.noteForDish
+            orderItemElement.appendChild(note)
+
+            const noteButton = document.createElement('button');
+            noteButton.type = 'noteButton'
+            noteButton.textContent = 'note';
+            noteButton.addEventListener('click', function() {
+
+                for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
+                    if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName 
+                        && tableOrders[tableNumber][indexOfTableOrder].noteForDish === ''){
+                            checkIndex = indexOfTableOrder
+                            break
+                    }
+                }
+
+                const noteValue = document.getElementById('noteValue' + checkIndex.toString()).value;                
+
+                for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
+                    if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
+                        tableOrders[tableNumber][indexOfTableOrder].noteForDish = noteValue
+                        updateOrderItems(tableNumber)
+                    }
+                }
+            })
+            orderItemElement.appendChild(noteButton);
+            */ 
+            
             const removeButton = document.createElement('button');
+            removeButton.type = 'removeButton';
             removeButton.textContent = 'Xóa';
             removeButton.addEventListener('click', function() {
                 removeOrderItem(tableNumber, orderItem.dishName);
             });
             orderItemElement.appendChild(removeButton);
-
+            indexOfQuantityInput += 1;
             orderItemsContainer.appendChild(orderItemElement);
         });
     }
@@ -266,6 +350,7 @@ function removeOrderItem(tableNumber, dishName) {
         if (orderItemIndex !== -1) {
             tableOrders[tableNumber].splice(orderItemIndex, 1);
 
+            //
             let tableID = convertTableNumberToTableID(tableNumber)
 
             listDishOrdered[tableID].splice(orderItemIndex, 1);
@@ -354,11 +439,13 @@ function suggestions() {
         li.addEventListener('click', function() {
             const tableNumber = document.getElementById('tableNumber').textContent;
             const dishName = monAn; // Use the suggested dish name
-            const noteForDish = ''
+            //const noteForDish = ''
+
+            const quantity = 1
             
             // Call the function to add the order item (assuming `addOrderItem` exists)
-            addOrderItem(tableNumber, dishName, noteForDish);
-
+            addOrderItem(tableNumber, dishName, quantity);
+            
             // Clear the dish input field
             dishInput.value = '';
 

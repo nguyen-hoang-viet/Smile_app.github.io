@@ -53,7 +53,7 @@
 
 /*Nút in bill*/
 #orderForm input[type="printBill"]{
-    width: 120px; /* Set button width */
+    width: 100px; /* Set button width */
     height: 45px; /* Set button height */
     font-size: 18px; /* Set button font size */
     background-color: #a3f3b1; /* Default button color */
@@ -122,20 +122,50 @@
     display: flex; /* Create a flex container within the order item */
     align-items: center; /* Align items vertically in the center */
 }
-
-/*số lượng món ăn đã được nhập*/
+/*
+/* số lượng món ăn đã được nhập
 .order-item input[type="text"] {
     height: 25px;
-    width: 200px; /* Set the width of the quantity input */
-    text-align: left; /* Center the quantity value */
+    width: 200px; /* Set the width of the quantity input 
+    text-align: left; /* Center the quantity value 
     font-size: 16px;
-    margin-right: 20px; /* Add spacing between dish name and quantity input */
+    margin-right: 20px; /* Add spacing between dish name and quantity input 
 }
 
+/*note button
+.order-item button[type="noteButton"] {
+    background-color: #a1c9f1; /* Set the background color of the note button 
+    color: rgb(0, 0, 0); /* Set the text color of the note button 
+    border: none; /* note the default button border 
+    padding: 8px 20px; /* Add padding to the note button 
+    cursor: pointer; /* Indicate that the button is clickable 
+    font-size: 16px; /* Set the font size for the note button text   
+}
+*/ 
 
+/*descrease and increase button for quantity input*/
+.order-item button[type = 'descrease'],
+.order-item button[type = 'increase']{
+    height: 30px;
+    width: 30px;
+    background-color:#a1c9f1;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
 
-/*nút xóa*/
-.order-item button {
+/*quantity input*/
+.order-item input[type = 'text']{
+    height: 30px;
+    width: 40px;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+/*remove button*/
+.order-item button[type="removeButton"] {
     background-color: #f00; /* Set the background color of the remove button */
     color: white; /* Set the text color of the remove button */
     border: none; /* Remove the default button border */

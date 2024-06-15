@@ -203,7 +203,7 @@ window.addEventListener('load', () => {
         for (let index1 = 0; index1 < listDishOrdered[tableNumber].length - 1; index1++){
             for (let index2 = index1 + 1; index2 < listDishOrdered[tableNumber].length; index2++){
                 if (listDishOrdered[tableNumber][index1] === listDishOrdered[tableNumber][index2]){
-                    listQuantity[tableNumber][index1] = listQuantity[tableNumber][index1] + 1;
+                    //listQuantity[tableNumber][index1] = Number(listQuantity[tableNumber][index1]) + Number(listQuantity[tableNumber][index2]);
                     listDishOrdered[tableNumber].splice(index2, 1);
                     listQuantity[tableNumber].splice(index2, 1);
                     index2--
