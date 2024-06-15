@@ -11,7 +11,7 @@ const dishAndPrice = [
     ["TĐM", "Trà đào (M)", 20000],
     ["TĐL", "Trà đào (L)", 25000],
     ["TCM", "Trà chanh (M)", 12000],
-    ["TCL", "Trà chanh (L)", 15000],   
+    ["TCL", "Trà chanh (L)", 15000], 
     ["CV ", "Mì Cay viên xịn", 37000],
     ["CKCV", "Mì Cay Kimchi viên", 37000],
     ["CHS", "Mì Cay Hải sản", 45000],
@@ -37,14 +37,14 @@ const dishAndPrice = [
     ["CVSM", "Cá viên sốt mayo", 15000],
     ["KTCXM", "Khoai tây chiên (xí muội)", 18000],
     ["KTCPM", "Khoai tây chiên (phomai)", 18000],
-    ["XXĐ", "Xúc xích đức", 10000],
+    ["XXĐ ", "Xúc xích đức", 10000],
     ["PMQ", "Phomai que", 10000],
     ["CB1 ", "Combo 1", 35000],
     ["CB2 ", "Combo 2", 40000],
     ["CB3 ", "Combo 3", 55000],
     ["CB4 ", "Combo 4", 55000],
     ["KBL", "Khô bò", 38000], 
-    ["KG", "Khô gà", 28000],
+    ["KG ", "Khô gà", 28000],
     ["BTT", "Bánh tráng trộn", 20000],
     ["MTĐT", "Mì tương đen trứng", 35000],
     ["THQ", "Tokbokki HQ", 27000],
@@ -63,7 +63,7 @@ const dishAndPrice = [
     ["CHIP", "Chipchip", 30000],
     ["KGK", "Khô gà kí", 320000],
     ["KBK", "Khô bò kí", 650000],
-    ["CS", "Chiên sốt", 10000],
+    ["CS ", "Chiên sốt", 10000],
     ["KBT", "Khô bò thêm", 7000],
     ["KGT", "Khô gà thêm", 6000],
     ["PTK", "Phồng tôm thêm", 5000],
@@ -101,7 +101,7 @@ const dishAndPrice = [
     ["CCT", "Chả cá trộn", 25000],
     ["TXM", "Trà xoài (M)", 20000],
     ["TXL", "Trà xoài (L)", 25000],
-    ["GSC", "Gà sốt cay", 35000],
+    ["GSC ", "Gà sốt cay", 35000],
     ["GSPM", "Gà sốt phomai", 35000],
     ["GSCPM", "Gà sốt cay phủ phomai", 40000],
     ["GV", "Gà popcorn chiên giòn", 27000]
@@ -289,6 +289,7 @@ const dishInput = document.getElementById('dish');
 const suggestionsList = document.getElementById('autocorrect');
 
 function suggestions() {
+
     const currentInput = dishInput.value.toLowerCase();
     const danhSachGoiYMoi = [];
     for (let index = 0; index < dishAndPrice.length; index++) {
@@ -300,7 +301,7 @@ function suggestions() {
         }
     }
 
-    if (danhSachGoiYMoi.length === 1){
+    if (danhSachGoiYMoi.length === 0){
         const tableNumber = document.getElementById('tableNumber').textContent;
         const dishName = danhSachGoiYMoi[0]; // Use the suggested dish name
         const noteForDish = ''
