@@ -51,7 +51,7 @@ const dishAndPrice = [
     ["TPM", "Tokbokki phomai", 35000],
     ["TOM", "Trà ổi hồng (M)", 20000],
     ["TOL", "Trà ổi hồng (L)", 25000],
-    ["XXĐT", "Xx đức thêm"],
+    ["XXĐT", "Xx đức thêm", 5000],
     ["XXVT", "Xx thường thêm", 3000],
     ["MIT", "Mì thêm", 12000],
     ["NKCT", "Nấm kim châm", 5000],
@@ -261,7 +261,7 @@ function updateOrderItems(tableNumber) {
                 for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
                     if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
                         tableOrders[tableNumber][indexOfTableOrder].quantity = Number(quantityValue) - 1
-                        listQuantity[tableNumber][indexOfTableOrder] = Number(quantityValue) - 1
+                        listQuantity[convertTableNumberToTableID(tableNumber)][indexOfTableOrder] = Number(quantityValue) - 1
                         updateOrderItems(tableNumber)
                     }
                 }
@@ -272,7 +272,7 @@ function updateOrderItems(tableNumber) {
             quantityInput.type = 'text';
             quantityInput.id = 'quantityValue' + indexOfQuantityInput.toString();
             quantityInput.value = orderItem.quantity;
-            orderItemElement.appendChild(quantityInput);
+            orderItemElement.appendChild(quantityInput)
 
             const increaseButton = document.createElement('button');
             increaseButton.type = 'increase';
@@ -291,7 +291,7 @@ function updateOrderItems(tableNumber) {
                 for (let indexOfTableOrder = 0; indexOfTableOrder < tableOrders[tableNumber].length; indexOfTableOrder++){
                     if (tableOrders[tableNumber][indexOfTableOrder].dishName === orderItem.dishName){
                         tableOrders[tableNumber][indexOfTableOrder].quantity = Number(quantityValue) + 1
-                        listQuantity[tableNumber][indexOfTableOrder] = Number(quantityValue) + 1
+                        listQuantity[convertTableNumberToTableID(tableNumber)][indexOfTableOrder] = Number(quantityValue) + 1
                         updateOrderItems(tableNumber)
                     }
                 }
