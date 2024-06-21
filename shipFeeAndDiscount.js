@@ -50,3 +50,8 @@ btnThanhToan.addEventListener('click', function(e) {
     openBillWindow()
 });
 // Press Enter to open bill window
+window.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter'){
+        openBillWindow()
+    }
+});

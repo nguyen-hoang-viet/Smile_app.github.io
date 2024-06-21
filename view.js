@@ -51,7 +51,7 @@ const dishAndPrice = [
     ["TPM", "Tokbokki phomai", 35000],
     ["TOM", "Trà ổi hồng (M)", 20000],
     ["TOL", "Trà ổi hồng (L)", 25000],
-    ["XXĐT", "Xx đức thêm"],
+    ["XXĐT", "Xx đức thêm", 5000],
     ["XXVT", "Xx thường thêm", 3000],
     ["MIT", "Mì thêm", 12000],
     ["NKCT", "Nấm kim châm", 5000],
